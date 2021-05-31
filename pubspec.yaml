@@ -1,7 +1,10 @@
 name: youtube_dl
 description: Flutter plugin to download videos from YouTube.com and a few more sites. Based on youtube-dl executable & youtubedl-android library.
 version: 0.0.1
-homepage:
+repository: https://github.com/f0rx/youtube_dl
+issue_tracker: https://github.com/f0rx/youtube_dl/issues
+homepage: https://github.com/f0rx/youtube_dl
+#documentation:
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
