@@ -6,6 +6,7 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 
     dependencies {
@@ -18,11 +19,14 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -36,5 +40,18 @@ android {
 }
 
 dependencies {
+    def arrow_version = "0.13.2"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // Add Functional Programming Deps
+    implementation platform("io.arrow-kt:arrow-stack:$arrow_version")
+    implementation "io.arrow-kt:arrow-core"
+    implementation "io.arrow-kt:arrow-fx-coroutines"
+    implementation "io.arrow-kt:arrow-optics"
+    kapt    "io.arrow-kt:arrow-meta:$arrow_version"
+
+    // Add Android YoutubeDL Library by github.com@yausername
+    implementation 'com.github.yausername.youtubedl-android:library:0.12.4'
+    // implementation "androidx.core:core-ktx:$kotlin_version"
 }
